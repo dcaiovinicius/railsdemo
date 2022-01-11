@@ -1,24 +1,20 @@
-# README
+# A simple application friend list
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository contains a source code of simple application in Ruby On Rails.
 
-Things you may want to cover:
+# How to install and start application
 
-* Ruby version
+```bash
 
-* System dependencies
+git clone https://github.com/caiovinicius42/railsdemo
 
-* Configuration
+cd railsdemo
 
-* Database creation
+bundle install
 
-* Database initialization
+rails db:migrate
 
-* How to run the test suite
+rails db:seed
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+rails server
+```
