@@ -11,15 +11,17 @@
       <th scope="col">First name</th>
       <th scope="col">E-mail</th>
       <th scope="col">Phone</th>
+      <th scope="col">Show</th>
     </tr>
   </thead>
   <tbody>
     <% @friends.each do |friend| %>
       <tr>
-        <th scope="row">1</th>
+        <th scope="row"><%= friend.id %></th>
         <td><%= friend.first_name %></td>
         <td><%= friend.email %></td>
         <td><%= friend.phone %></td>
+        <td><%= link_to "Show", friend_url(friend), class: 'btn btn-primary' %></td>
       </tr>
     <% end %>
   </tbody>
