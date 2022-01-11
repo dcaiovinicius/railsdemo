@@ -28,6 +28,21 @@ class FriendsController < ApplicationController
     end
   end
 
+  # GET /friends/1
+  def edit
+  end
+
+  # patch/post /friends
+  def update
+    respond_to do |format|
+      if @friend.update(friend_params)
+        format.html { redirect_to friend_url(@friend) }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
     def set_friend

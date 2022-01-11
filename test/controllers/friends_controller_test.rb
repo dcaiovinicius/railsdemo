@@ -29,4 +29,15 @@ class FriendsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to friends_url(Friend.last)
   end
+
+  test "should get edit" do
+    get edit_friend_url(@friend)
+    assert_response :success
+  end
+
+  test "should update friend" do
+    patch friend_url(@friend), params: {
+      friend: { first_name: @friend.first_name, email: @friend.email, phone: @friend.phone, description: @friend.description } }
+    assert_redirected_to friend_url(@friend)
+  end
 end
