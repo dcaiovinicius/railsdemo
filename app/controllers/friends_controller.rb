@@ -10,9 +10,31 @@ class FriendsController < ApplicationController
   def show
   end
 
+  # GET /friends/new
+  def new
+    @friend = Friend.new
+  end
+
+  # POST /friends
+  def create
+    @friend = Friend.new(friend_params)
+
+    respond_to do |format|
+      if @friend.save
+        format.html { redirect_to friends_url(@friend) }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
     def set_friend
       @friend = Friend.find(params[:id])
+    end
+
+    def friend_params
+      params.require(:friend).permit(:first_name, :email, :phone, :description)
     end
 end
