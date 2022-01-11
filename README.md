@@ -12,9 +12,9 @@ cd railsdemo
 
 bundle install
 
-rails db:migrate
+rails yarn:install
 
-rails db:seed
+rails db:create db:migrate db:seed
 
-rails server
+bin/dev
 ```
