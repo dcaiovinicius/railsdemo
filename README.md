@@ -2,7 +2,7 @@
 
 This repository contains a source code of simple application in Ruby On Rails.
 
-# How to install and start application
+## How to install and start application
 
 ```bash
 
