@@ -40,4 +40,12 @@ class FriendsControllerTest < ActionDispatch::IntegrationTest
       friend: { first_name: @friend.first_name, email: @friend.email, phone: @friend.phone, description: @friend.description } }
     assert_redirected_to friend_url(@friend)
   end
+
+  test "should destroy friend" do
+    assert_difference('Friend.count', -1) do
+      delete friend_url(@friend)
+    end
+
+    assert_redirected_to friends_url
+  end
 end

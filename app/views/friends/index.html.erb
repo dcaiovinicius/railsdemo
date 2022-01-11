@@ -13,6 +13,7 @@
       <th scope="col">Phone</th>
       <th scope="col">Show</th>
       <th scope="col">Edit</th>
+      <th scope="col">Destroy</th>
     </tr>
   </thead>
   <tbody>
@@ -24,6 +25,7 @@
         <td><%= friend.phone %></td>
         <td><%= link_to "Show", friend_url(friend), class: 'btn btn-primary' %></td>
         <td><%= link_to "Edit", edit_friend_url(friend), class: 'btn btn-primary' %></td>
+        <td><%= link_to "Destroy", friend_path(friend), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

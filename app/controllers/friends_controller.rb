@@ -43,6 +43,14 @@ class FriendsController < ApplicationController
     end
   end
 
+  def destroy
+    @friend.destroy
+
+    respond_to do |format|
+      format.html { redirect_to friends_url }
+    end
+  end
+
   private
 
     def set_friend
