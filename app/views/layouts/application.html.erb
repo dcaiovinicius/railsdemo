@@ -13,6 +13,9 @@
   <body>
     <%= render "layouts/header" %>
     <div class="container">
+      <% if notice %>
+        <%= render "layouts/alert", notice: notice %>
+      <% end %>
       <%= yield %>
     </div>
   </body>

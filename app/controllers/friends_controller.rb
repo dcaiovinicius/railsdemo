@@ -1,9 +1,11 @@
 class FriendsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :current_user
   before_action :set_friend, only: %i{ show update destroy edit }
 
   # GET /friends
   def index
-    @friends = Friend.all
+    @friends = current_user.friends.all
   end
 
   # GET /friends/1
@@ -12,12 +14,12 @@ class FriendsController < ApplicationController
 
   # GET /friends/new
   def new
-    @friend = Friend.new
+    @friend = current_user.friends.build
   end
 
   # POST /friends
   def create
-    @friend = Friend.new(friend_params)
+    @friend = current_user.friends.build(friend_params)
 
     respond_to do |format|
       if @friend.save
@@ -43,6 +45,7 @@ class FriendsController < ApplicationController
     end
   end
 
+  # delete /friends
   def destroy
     @friend.destroy
 
@@ -58,6 +61,6 @@ class FriendsController < ApplicationController
     end
 
     def friend_params
-      params.require(:friend).permit(:first_name, :email, :phone, :description)
+      params.require(:friend).permit(:first_name, :email, :phone, :description, :user_id)
     end
 end

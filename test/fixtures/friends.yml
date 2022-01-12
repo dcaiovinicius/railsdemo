@@ -1,13 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  email: MyString
-  phone: MyString
-  description: MyString
-
-two:
-  first_name: MyString
-  email: MyString
-  phone: MyString
-  description: MyString
+  id: 1
+  first_name: <%= FFaker::Name.name %>
+  email: <%= FFaker::Internet.email %>
+  phone: <%= FFaker::PhoneNumberBR.international_mobile_phone_number %>
+  description: <%= FFaker::DizzleIpsum.phrase %>
+  user_id: 1
